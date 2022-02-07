@@ -1,6 +1,7 @@
 let primeira , segunda
 let bloqueio = false
 
+
 const tabuleiro = document.querySelector ("#tabuleiro")
 
 const imagens = [
@@ -12,6 +13,11 @@ const imagens = [
     'tripletsparrot.gif',
     'unicornparrot.gif'
 ]
+function dimensionar (){
+    if (imagens.length > numero) {
+        imagens.length = numero;
+    }
+}
 
 let codigoHTML =''
 
@@ -19,7 +25,7 @@ imagens.forEach(img=>{
     codigoHTML += `
     <div class = "memory-card" data-carta = "${img}">
         <img class = "frente-carta" src = "imgs/${img}">
-        <img class = "fundo-carta" src = "imgs/papa.jpg">
+        <img class = "fundo-carta" src = "imgs/front.png">
     </div> 
     `
 })
@@ -29,7 +35,7 @@ const cartas = document.querySelectorAll (".memory-card")
 
 function aleatoria (){
     cartas.forEach (carta => {
-        let numero = Math.floor(Math.random()*14)
+        let numero = Math.floor(Math.random()*numero)
         carta.style.order = numero
     })
 }
